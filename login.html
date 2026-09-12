@@ -1,115 +1,153 @@
-<!DOCTYPE html>
-<html lang="tl">
+<!DOCTYPE html><html lang="tl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GGGPH - Login</title>
-
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #071b55;
-  color: white;
+<title>GGGPH - Login</title><style>
+* {
+  box-sizing: border-box;
 }
 
-.container {
+body {
+  margin: 0;
   min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: #06165a;
+  color: white;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   padding: 20px;
 }
 
 .login-box {
   width: 100%;
-  max-width: 380px;
-  background: white;
-  color: #111;
+  max-width: 420px;
+  background: #092675;
+  border: 2px solid #e7bd20;
+  border-radius: 25px;
   padding: 30px 22px;
-  border-radius: 18px;
   box-shadow: 0 10px 30px rgba(0,0,0,.35);
 }
 
 .logo {
   text-align: center;
-  color: #d4a900;
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 25px;
+  font-size: 42px;
+  font-weight: 900;
+  color: #ffd21c;
+  text-shadow: 2px 3px 2px #8b5200;
+  margin-bottom: 8px;
 }
 
-h2 {
+.subtitle {
   text-align: center;
+  color: #d5dcff;
+  margin-bottom: 28px;
+}
+
+label {
+  display: block;
+  margin: 15px 5px 7px;
+  font-weight: bold;
 }
 
 input {
   width: 100%;
-  padding: 14px;
-  margin: 8px 0;
-  border: 1px solid #ccc;
-  border-radius: 9px;
-  font-size: 16px;
-}
-
-button {
-  width: 100%;
-  padding: 14px;
-  margin-top: 15px;
-  border: none;
-  border-radius: 25px;
-  background: #123477;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #6685d8;
+  background: #102e78;
   color: white;
   font-size: 16px;
-  font-weight: bold;
+  outline: none;
 }
 
-.back {
-  display: block;
+input::placeholder {
+  color: #b9c5ef;
+}
+
+input:focus {
+  border-color: #ffd21c;
+}
+
+.login-btn {
+  width: 100%;
+  margin-top: 25px;
+  padding: 15px;
+  border: none;
+  border-radius: 25px;
+  background: #ffd21c;
+  color: #111;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-btn:active {
+  transform: scale(.98);
+}
+
+.register {
   text-align: center;
-  margin-top: 18px;
-  color: #123477;
+  margin-top: 22px;
+  color: #d5dcff;
+}
+
+.register a {
+  color: #ffd21c;
+  font-weight: bold;
   text-decoration: none;
 }
-</style>
-</head>
 
-<body>
+.message {
+  display: none;
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+  background: #163b91;
+}
+</style></head><body><div class="login-box">  <div class="logo">GGGPH</div>  <div class="subtitle">
+    Mag-login sa iyong account
+  </div>  <form id="loginForm"><label for="username">Username</label>
+<input
+  type="text"
+  id="username"
+  placeholder="Ilagay ang username"
+  required
+>
 
-<div class="container">
+<label for="password">Password</label>
+<input
+  type="password"
+  id="password"
+  placeholder="Ilagay ang password"
+  required
+>
 
-  <div class="login-box">
+<button type="submit" class="login-btn">
+  MAG-LOGIN
+</button>
 
-    <div class="logo">GGGPH</div>
+  </form>  <div id="message" class="message"></div>  <div class="register">
+    Wala pang account?
+    <a href="register.html">Magrehistro</a>
+  </div></div><script>
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+  e.preventDefault();
 
-    <h2>Mag-Login</h2>
-
-    <input type="text" id="username" placeholder="Username">
-
-    <input type="password" id="password" placeholder="Password">
-
-    <button onclick="login()">LOGIN</button>
-
-    <a class="back" href="index.html">← Bumalik sa Home</a>
-
-  </div>
-
-</div>
-
-<script>
-function login() {
-  const username = document.getElementById("username").value;
+  const username = document.getElementById("username").value.trim();
   const password = document.getElementById("password").value;
 
-  if (!username || !password) {
-    alert("Pakilagay ang username at password.");
+  if (username === "" || password === "") {
     return;
   }
 
-  alert("login successful!");
-  window.location.href = "index.html";
-}
-</script>
+  // Demo login
+  localStorage.setItem("gggph_logged_in", "true");
+  localStorage.setItem("gggph_username", username);
 
-</body>
+  // Balik sa homepage
+  window.location.href = "index.html";
+});
+</script></body>
 </html>
