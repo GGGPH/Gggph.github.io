@@ -3,150 +3,272 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GGGPH</title>
+<title>GGGPH Demo</title>
 
 <style>
-*{box-sizing:border-box}
-
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#071b55;
-  color:white;
+* {
+  box-sizing: border-box;
 }
 
-header{
-  height:70px;
-  background:#092466;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:10px 15px;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #06165a;
+  color: white;
 }
 
-.logo{
-  font-size:28px;
-  font-weight:bold;
-  color:#ffd700;
+/* TOP BANNER */
+.top-banner {
+  height: 95px;
+  background: linear-gradient(90deg,#102d82,#1768d8,#102d82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  font-size: 25px;
+  font-weight: bold;
 }
 
-button{
-  border:0;
-  border-radius:22px;
-  padding:10px 16px;
-  font-weight:bold;
-  cursor:pointer;
+.top-banner span {
+  color: #ffd52a;
 }
 
-.login{
-  background:#163b91;
-  color:white;
-  border:1px solid #7894ff;
+/* HEADER */
+header {
+  height: 90px;
+  background: #092675;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 18px;
 }
 
-.register{
-  background:#ffd700;
-  color:#111;
-  margin-left:5px;
+.logo {
+  font-size: 36px;
+  font-weight: 900;
+  color: #ffd21c;
+  text-shadow: 2px 3px 2px #8b5200;
 }
 
-.menu{
-  background:#123477;
-  padding:12px 20px;
-  text-align:right;
-  font-size:28px;
+.menu {
+  font-size: 35px;
 }
 
-.hero{
-  min-height:430px;
-  padding:70px 20px;
-  text-align:center;
-  background:linear-gradient(#0b2b72,#071b55);
+/* HERO */
+.hero {
+  margin: 18px;
+  height: 210px;
+  border-radius: 25px;
+  border: 2px solid #e7bd20;
+  background:
+    radial-gradient(circle at 30% 40%,#1ba8ff,transparent 35%),
+    linear-gradient(120deg,#06306f,#087bd1,#0b286c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
 }
 
-.hero h1{
-  font-size:38px;
-  margin:10px 0;
+.hero h1 {
+  font-size: 30px;
+  margin: 5px;
 }
 
-.hero p{
-  font-size:18px;
+.hero p {
+  font-size: 18px;
+  font-weight: bold;
 }
 
-.cta{
-  margin-top:25px;
-  background:white;
-  color:#092466;
-  font-size:17px;
+/* NOTICE */
+.notice {
+  margin: 10px 18px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #163b91;
+  text-align: center;
 }
 
-section{
-  padding:30px 20px;
-  text-align:center;
+/* ACCOUNT BUTTONS */
+.account {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 15px;
 }
 
-.card{
-  background:#102d70;
-  padding:20px;
-  margin:12px auto;
-  max-width:400px;
-  border-radius:15px;
+.account button {
+  width: 45%;
+  padding: 13px;
+  border-radius: 25px;
+  border: 1px solid #91a8ff;
+  background: #183e9b;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
 }
 
-footer{
-  background:#102d70;
-  padding:25px;
-  text-align:center;
+/* CATEGORIES */
+.categories {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px 15px 20px;
+}
+
+.category {
+  min-width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  background: #173a8b;
+  border: 2px solid #4569c9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.category:first-child {
+  background: #eebc17;
+  color: #111;
+}
+
+/* DEMO CARDS */
+h2 {
+  padding: 0 18px;
+}
+
+.games {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 12px;
+  padding: 10px 18px 90px;
+}
+
+.card {
+  height: 150px;
+  border-radius: 15px;
+  background: linear-gradient(145deg,#1168c8,#10266e);
+  border: 1px solid #4168ca;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+/* BOTTOM NAV */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 75px;
+  background: #123477;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 2px solid #3458a8;
+}
+
+.nav-item {
+  text-align: center;
+  font-size: 13px;
+  color: #d5dcff;
+}
+
+.nav-item div {
+  font-size: 25px;
+  margin-bottom: 3px;
+}
+
+.active {
+  color: #ffd21c;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">GGGPH</div>
-
-  <div>
-    <button class="login" onclick="login()">Mag-Login</button>
-    <button class="register" onclick="register()">Magrehistro</button>
-  </div>
-</header>
-
-<div class="menu">☰</div>
-
-<div class="hero">
-  <h1>Welcome sa GGGPH</h1>
-  <p>Maligayang pagdating sa aming website.</p>
-  <button class="cta" onclick="register()">Gumawa ng Account</button>
+<div class="top-banner">
+  🎮 <span>GGGPH </span> — Welcome!
 </div>
 
-<section>
-  <h2>Welcome</h2>
+<header>
+  <div class="logo">GGGPH</div>
+  <div class="menu">☰</div>
+</header>
 
-  <div class="card">
-    <h3>Account</h3>
-    <p>Mag-register o mag-login para makapasok sa iyong demo account.</p>
+<div class="hero">
+  <div>
+    <h1>WELCOME TO GGGPH</h1>
+    <p>Enjoy our mobile experience</p>
+  </div>
+</div>
+
+<div class="notice">
+  🔊 Welcome! Explore our website.
+</div>
+
+<div class="account">
+  <button onclick="location.href='register.html'">
+    Magrehistro
+  </button>
+
+  <button onclick="location.href='login.html'">
+    Mag-Login
+  </button>
+</div>
+
+<div class="categories">
+  <div class="category">🔥<br>Popular</div>
+  <div class="category">🎮<br>Games</div>
+  <div class="category">🐟<br>Fish</div>
+  <div class="category">🎥<br>Live</div>
+  <div class="category">⚽<br>Sports</div>
+  <div class="category">🏆<br>More</div>
+</div>
+
+<h2>Featured Demo</h2>
+
+<div class="games">
+  <div class="card">🎮<br>Game 1</div>
+  <div class="card">🎯<br>Game 2</div>
+  <div class="card">🕹️<br>Game 3</div>
+  <div class="card">⭐<br>Game 4</div>
+  <div class="card">🎲<br>Game 5</div>
+  <div class="card">🏆<br>Game 6</div>
+</div>
+
+<div class="bottom-nav">
+  <div class="nav-item active">
+    <div>🏠</div>
+    Home
   </div>
 
-  <div class="card">
-    <h3>Mobile Friendly</h3>
-    <p>Dinisenyo para madaling gamitin sa cellphone.</p>
+  <div class="nav-item">
+    <div>📣</div>
+    Promos
   </div>
-</section>
 
-<footer>
-  © 2026 GGGPH
-</footer>
+  <div class="nav-item">
+    <div>🎮</div>
+    Games
+  </div>
 
-<script>
-function login(){
-  alert("Login page ");
-}
+  <div class="nav-item">
+    <div>❤️</div>
+    Favorites
+  </div>
 
-function register(){
-  alert("Registration page");
-}
-</script>
+  <div class="nav-item">
+    <div>👤</div>
+    Miyembro
+  </div>
+</div>
 
 </body>
-</html>
+    </html>
