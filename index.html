@@ -1,132 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GGGPH Demo</title>
+<title>GGGPH</title>
 
 <style>
-* {
-  box-sizing: border-box;
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#071b55;
+  color:white;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #071b55;
-  color: white;
+header{
+  height:70px;
+  background:#092466;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 15px;
 }
 
-header {
-  background: #081b5b;
-  padding: 15px 18px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.logo{
+  font-size:28px;
+  font-weight:bold;
+  color:#ffd700;
 }
 
-.logo {
-  font-size: 30px;
-  font-weight: bold;
-  color: gold;
-  text-shadow: 2px 2px 3px #555;
+button{
+  border:0;
+  border-radius:22px;
+  padding:10px 16px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-.buttons button {
-  padding: 10px 14px;
-  margin-left: 5px;
-  border-radius: 22px;
-  border: 1px solid #6c8cff;
-  background: #18388f;
-  color: white;
-  font-weight: bold;
+.login{
+  background:#163b91;
+  color:white;
+  border:1px solid #7894ff;
 }
 
-.menu {
-  background: #193987;
-  padding: 14px;
-  text-align: right;
-  font-size: 28px;
+.register{
+  background:#ffd700;
+  color:#111;
+  margin-left:5px;
 }
 
-.hero {
-  text-align: center;
-  padding: 55px 20px;
-  min-height: 430px;
+.menu{
+  background:#123477;
+  padding:12px 20px;
+  text-align:right;
+  font-size:28px;
 }
 
-.hero h1 {
-  font-size: 38px;
-  margin-bottom: 15px;
+.hero{
+  min-height:430px;
+  padding:70px 20px;
+  text-align:center;
+  background:linear-gradient(#0b2b72,#071b55);
 }
 
-.hero p {
-  font-size: 18px;
+.hero h1{
+  font-size:38px;
+  margin:10px 0;
 }
 
-.main-btn {
-  margin-top: 25px;
-  padding: 14px 35px;
-  border: none;
-  border-radius: 25px;
-  background: white;
-  color: #071b55;
-  font-size: 17px;
-  font-weight: bold;
+.hero p{
+  font-size:18px;
 }
 
-footer {
-  background: #183987;
-  text-align: center;
-  padding: 25px 15px;
+.cta{
+  margin-top:25px;
+  background:white;
+  color:#092466;
+  font-size:17px;
 }
 
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.75);
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+section{
+  padding:30px 20px;
+  text-align:center;
 }
 
-.box {
-  width: 100%;
-  max-width: 380px;
-  background: white;
-  color: #111;
-  padding: 25px;
-  border-radius: 15px;
+.card{
+  background:#102d70;
+  padding:20px;
+  margin:12px auto;
+  max-width:400px;
+  border-radius:15px;
 }
 
-.box h2 {
-  text-align: center;
-}
-
-.box input {
-  width: 100%;
-  padding: 13px;
-  margin: 8px 0;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
-.box button {
-  width: 100%;
-  padding: 13px;
-  margin-top: 10px;
-  border: none;
-  border-radius: 8px;
-  background: #183987;
-  color: white;
-  font-weight: bold;
-}
-
-.close {
-  float: right;
-  font-size: 25px;
-  cursor: pointer;
+footer{
+  background:#102d70;
+  padding:25px;
+  text-align:center;
 }
 </style>
 </head>
@@ -136,103 +106,45 @@ footer {
 <header>
   <div class="logo">GGGPH</div>
 
-  <div class="buttons">
-    <button onclick="openLogin()">Mag-Login</button>
-    <button onclick="openRegister()">Magrehistro</button>
+  <div>
+    <button class="login" onclick="login()">Mag-Login</button>
+    <button class="register" onclick="register()">Magrehistro</button>
   </div>
 </header>
 
 <div class="menu">☰</div>
 
-<section class="hero">
-  <h1 id="welcome">Welcome!</h1>
-  <p>Welcome sa iyong website.</p>
+<div class="hero">
+  <h1>Welcome sa GGGPH</h1>
+  <p>Maligayang pagdating sa aming website.</p>
+  <button class="cta" onclick="register()">Gumawa ng Account</button>
+</div>
 
-  <button class="main-btn" onclick="openRegister()">
-    Gumawa ng Account
-  </button>
+<section>
+  <h2>Welcome</h2>
+
+  <div class="card">
+    <h3>Account</h3>
+    <p>Mag-register o mag-login para makapasok sa iyong demo account.</p>
+  </div>
+
+  <div class="card">
+    <h3>Mobile Friendly</h3>
+    <p>Dinisenyo para madaling gamitin sa cellphone.</p>
+  </div>
 </section>
 
 <footer>
-  © 2026 GGGPH Demo Website
+  © 2026 GGGPH
 </footer>
 
-
-<!-- LOGIN -->
-<div class="modal" id="loginModal">
-  <div class="box">
-    <span class="close" onclick="closeModal()">×</span>
-    <h2>Mag-Login</h2>
-
-    <input id="loginUser" placeholder="Username">
-    <input id="loginPass" type="password" placeholder="Password">
-
-    <button onclick="login()">Login</button>
-  </div>
-</div>
-
-
-<!-- REGISTER -->
-<div class="modal" id="registerModal">
-  <div class="box">
-    <span class="close" onclick="closeModal()">×</span>
-    <h2>Magrehistro</h2>
-
-    <input id="regUser" placeholder="Username">
-    <input id="regPass" type="password" placeholder="Password">
-
-    <button onclick="register()">Gumawa ng Account</button>
-  </div>
-</div>
-
-
 <script>
-function openLogin() {
-  document.getElementById("loginModal").style.display = "flex";
+function login(){
+  alert("Login page ");
 }
 
-function openRegister() {
-  document.getElementById("registerModal").style.display = "flex";
-}
-
-function closeModal() {
-  document.getElementById("loginModal").style.display = "none";
-  document.getElementById("registerModal").style.display = "none";
-}
-
-function register() {
-  let user = document.getElementById("regUser").value;
-  let pass = document.getElementById("regPass").value;
-
-  if (!user || !pass) {
-    alert("Pakilagay ang username at password.");
-    return;
-  }
-
-  localStorage.setItem("demoUser", user);
-  localStorage.setItem("demoPass", pass);
-
-  alert("Account created!");
-  closeModal();
-  openLogin();
-}
-
-function login() {
-  let user = document.getElementById("loginUser").value;
-  let pass = document.getElementById("loginPass").value;
-
-  let savedUser = localStorage.getItem("demoUser");
-  let savedPass = localStorage.getItem("demoPass");
-
-  if (user === savedUser && pass === savedPass) {
-    localStorage.setItem("loggedIn", "yes");
-    document.getElementById("welcome").innerText =
-      "Welcome, " + user + "!";
-    closeModal();
-    alert("Successful login!");
-  } else {
-    alert("Wrong username or password.");
-  }
+function register(){
+  alert("Registration page");
 }
 </script>
 
