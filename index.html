@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<html lang="tl">
+<script>
+  // Check kung naka-login
+  if (localStorage.getItem("gggph_logged_in") !== "true") {
+    window.location.href = "login.html";
+  }
+</script><html lang="tl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -189,7 +194,12 @@ h2 {
   color: #ffd21c;
 }
 </style>
-</head>
+</head><script>
+  // Check kung naka-login
+  if (localStorage.getItem("gggph_logged_in") !== "true") {
+    window.location.href = "login.html";
+  }
+</script>
 
 <body>
 
@@ -199,7 +209,19 @@ h2 {
 
 <header>
   <div class="logo">GGGPH</div>
-  <div class="menu">☰</div>
+  <div class="menu">
+  <button onclick="logout()" style="
+    background:#ffd21c;
+    color:#111;
+    border:none;
+    border-radius:20px;
+    padding:10px 16px;
+    font-weight:bold;
+    cursor:pointer;
+  ">
+    Logout
+  </button>
+  </div>
 </header>
 
 <div class="hero">
@@ -270,5 +292,10 @@ h2 {
   </div>
 </div>
 
-</body>
+<script>
+function logout() {
+  localStorage.removeItem("gggph_logged_in");
+  window.location.href = "login.html";
+}
+</script></body>
     </html>
