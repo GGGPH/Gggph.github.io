@@ -1,53 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GGGPH Demo</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #071b55;
-      color: white;
-      text-align: center;
-    }
+<style>
+* {
+  box-sizing: border-box;
+}
 
-    header {
-      padding: 25px;
-      background: #102b78;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #071b55;
+  color: white;
+}
 
-    h1 {
-      margin: 10px 0;
-    }
+header {
+  background: #081b5b;
+  padding: 15px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-    .content {
-      padding: 50px 20px;
-    }
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+  color: gold;
+  text-shadow: 2px 2px 3px #555;
+}
 
-    button {
-      padding: 12px 25px;
-      border: none;
-      border-radius: 25px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-  </style>
+.buttons button {
+  padding: 10px 14px;
+  margin-left: 5px;
+  border-radius: 22px;
+  border: 1px solid #6c8cff;
+  background: #18388f;
+  color: white;
+  font-weight: bold;
+}
+
+.menu {
+  background: #193987;
+  padding: 14px;
+  text-align: right;
+  font-size: 28px;
+}
+
+.hero {
+  text-align: center;
+  padding: 55px 20px;
+  min-height: 430px;
+}
+
+.hero h1 {
+  font-size: 38px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 18px;
+}
+
+.main-btn {
+  margin-top: 25px;
+  padding: 14px 35px;
+  border: none;
+  border-radius: 25px;
+  background: white;
+  color: #071b55;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+footer {
+  background: #183987;
+  text-align: center;
+  padding: 25px 15px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.75);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.box {
+  width: 100%;
+  max-width: 380px;
+  background: white;
+  color: #111;
+  padding: 25px;
+  border-radius: 15px;
+}
+
+.box h2 {
+  text-align: center;
+}
+
+.box input {
+  width: 100%;
+  padding: 13px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.box button {
+  width: 100%;
+  padding: 13px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #183987;
+  color: white;
+  font-weight: bold;
+}
+
+.close {
+  float: right;
+  font-size: 25px;
+  cursor: pointer;
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>My Website</h1>
-  </header>
+<header>
+  <div class="logo">GGGPH</div>
 
-  <div class="content">
-    <h2>Welcome!</h2>
-    <p>Ang unang website ko.</p>
-    <button onclick="alert('Hello!')">Click Me</button>
+  <div class="buttons">
+    <button onclick="openLogin()">Mag-Login</button>
+    <button onclick="openRegister()">Magrehistro</button>
   </div>
+</header>
+
+<div class="menu">☰</div>
+
+<section class="hero">
+  <h1 id="welcome">Welcome!</h1>
+  <p>Welcome sa iyong website.</p>
+
+  <button class="main-btn" onclick="openRegister()">
+    Gumawa ng Account
+  </button>
+</section>
+
+<footer>
+  © 2026 GGGPH Demo Website
+</footer>
+
+
+<!-- LOGIN -->
+<div class="modal" id="loginModal">
+  <div class="box">
+    <span class="close" onclick="closeModal()">×</span>
+    <h2>Mag-Login</h2>
+
+    <input id="loginUser" placeholder="Username">
+    <input id="loginPass" type="password" placeholder="Password">
+
+    <button onclick="login()">Login</button>
+  </div>
+</div>
+
+
+<!-- REGISTER -->
+<div class="modal" id="registerModal">
+  <div class="box">
+    <span class="close" onclick="closeModal()">×</span>
+    <h2>Magrehistro</h2>
+
+    <input id="regUser" placeholder="Username">
+    <input id="regPass" type="password" placeholder="Password">
+
+    <button onclick="register()">Gumawa ng Account</button>
+  </div>
+</div>
+
+
+<script>
+function openLogin() {
+  document.getElementById("loginModal").style.display = "flex";
+}
+
+function openRegister() {
+  document.getElementById("registerModal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("loginModal").style.display = "none";
+  document.getElementById("registerModal").style.display = "none";
+}
+
+function register() {
+  let user = document.getElementById("regUser").value;
+  let pass = document.getElementById("regPass").value;
+
+  if (!user || !pass) {
+    alert("Pakilagay ang username at password.");
+    return;
+  }
+
+  localStorage.setItem("demoUser", user);
+  localStorage.setItem("demoPass", pass);
+
+  alert("Account created!");
+  closeModal();
+  openLogin();
+}
+
+function login() {
+  let user = document.getElementById("loginUser").value;
+  let pass = document.getElementById("loginPass").value;
+
+  let savedUser = localStorage.getItem("demoUser");
+  let savedPass = localStorage.getItem("demoPass");
+
+  if (user === savedUser && pass === savedPass) {
+    localStorage.setItem("loggedIn", "yes");
+    document.getElementById("welcome").innerText =
+      "Welcome, " + user + "!";
+    closeModal();
+    alert("Successful login!");
+  } else {
+    alert("Wrong username or password.");
+  }
+}
+</script>
 
 </body>
 </html>
