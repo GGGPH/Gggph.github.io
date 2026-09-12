@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="tl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GGGPH - Register</title><style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: #06165a;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.register-box {
+  width: 100%;
+  max-width: 420px;
+  background: #092675;
+  border: 2px solid #e7bd20;
+  border-radius: 25px;
+  padding: 30px 22px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+.logo {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 900;
+  color: #ffd21c;
+  text-shadow: 2px 3px 2px #8b5200;
+}
+
+.subtitle {
+  text-align: center;
+  color: #d5dcff;
+  margin: 8px 0 25px;
+}
+
+label {
+  display: block;
+  margin: 14px 5px 7px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #6685d8;
+  background: #102e78;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+
+input::placeholder {
+  color: #b9c5ef;
+}
+
+input:focus {
+  border-color: #ffd21c;
+}
+
+.register-btn {
+  width: 100%;
+  margin-top: 24px;
+  padding: 15px;
+  border: none;
+  border-radius: 25px;
+  background: #ffd21c;
+  color: #111;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login {
+  text-align: center;
+  margin-top: 22px;
+  color: #d5dcff;
+}
+
+.login a {
+  color: #ffd21c;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.message {
+  display: none;
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #163b91;
+  text-align: center;
+}
+</style></head><body><div class="register-box">  <div class="logo">GGGPH</div>  <div class="subtitle">
+    Gumawa ng iyong account
+  </div>  <form id="registerForm"><label for="username">Username</label>
+<input
+  type="text"
+  id="username"
+  placeholder="Gumawa ng username"
+  required
+>
+
+<label for="password">Password</label>
+<input
+  type="password"
+  id="password"
+  placeholder="Gumawa ng password"
+  required
+>
+
+<label for="confirmPassword">Ulitin ang Password</label>
+<input
+  type="password"
+  id="confirmPassword"
+  placeholder="Ulitin ang password"
+  required
+>
+
+<button type="submit" class="register-btn">
+  MAGREHISTRO
+</button>
+
+  </form>  <div id="message" class="message"></div>  <div class="login">
+    May account ka na?
+    <a href="login.html">Mag-Login</a>
+  </div></div><script>
+document.getElementById("registerForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
+  const message = document.getElementById("message");
+
+  if (password !== confirmPassword) {
+    message.textContent = "❌ Hindi magkapareho ang password.";
+    message.style.display = "block";
+    return;
+  }
+
+  localStorage.setItem("gggph_username", username);
+  localStorage.setItem("gggph_password", password);
+
+  message.textContent = "✅ Matagumpay ang registration!";
+
+  message.style.display = "block";
+
+  setTimeout(function() {
+    window.location.href = "login.html";
+  }, 1000);
+});
+</script></body>
+</html>
